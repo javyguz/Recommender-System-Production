@@ -1,4 +1,4 @@
-# Getting started with Django on Google Cloud Platform on App Engine Standard
+# Production App for a Book Recommender System
 
 [![Open in Cloud Shell][shell_img]][shell_link]
 
