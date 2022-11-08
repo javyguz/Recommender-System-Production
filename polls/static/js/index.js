@@ -1,7 +1,11 @@
 var data = JSON.parse(document.getElementById('Recommendation').textContent);
 var first = JSON.parse(document.getElementById('First').textContent);
-console.log(data);
-console.log(first)
+var data1 = JSON.parse(document.getElementById('data').textContent);
+var mylist = JSON.parse("{{mylistjson}}")
+console.log(mylist)
+console.log(data1)
+
+
 if (data.length == 0 && first == "false"){
     const errorMessage = document.createTextNode("El libro no existe en la base de datos");
     document.getElementById("images").appendChild(errorMessage);
@@ -19,4 +23,34 @@ else{
 
         document.getElementById("images").appendChild(img);
     }
+}
+
+var search_terms = {{data | safe}};
+
+function autocompleteMatch(input) {
+  if (input == '') {
+    return [];
+  }
+  var reg = new RegExp(input)
+  return search_terms.filter(function(term) {
+      if (term.match(reg)) {
+      return term;
+      }
+  });
+}
+
+function showResults(val) {
+  res = document.getElementById("result");
+  res.innerHTML = '';
+  let list = '';
+  let terms = autocompleteMatch(val);
+  for (i=0; i<terms.length; i++) {
+    list += '<option>' + terms[i] + '</option>';
+  }
+  res.innerHTML = '<select onchange="changeFunc(value);" id="ddlViewBy">' + list + '</select>';
+
+}
+
+function changeFunc(i) {
+    document.getElementById("mytextbox").value = i;
 }

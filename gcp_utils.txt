@@ -1,0 +1,18 @@
+// Credentials
+recommender-system-350019
+rs-instance
+us-central1
+
+// Run connexion with gcloud database
+cloud_sql_proxy.exe -instances="recommender-system-350019:us-central1:rs-instance"=tcp:5432
+
+// In other terminal:
+set GOOGLE_CLOUD_PROJECT=recommender-system-350019
+set USE_CLOUD_SQL_AUTH_PROXY=true
+
+// Activate local venv
+venv\Scripts\activate
+
+// Test with python commands:
+python manage.py makemigrations
+python manage.py runserver

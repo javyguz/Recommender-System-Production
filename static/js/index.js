@@ -1,7 +1,8 @@
 var data = JSON.parse(document.getElementById('Recommendation').textContent);
 var first = JSON.parse(document.getElementById('First').textContent);
-console.log(data);
-console.log(first)
+var mylist = JSON.parse(document.getElementById('data').textContent);
+console.log(mylist)
+
 if (data.length == 0 && first == "false"){
     const errorMessage = document.createTextNode("El libro no existe en la base de datos");
     document.getElementById("images").appendChild(errorMessage);

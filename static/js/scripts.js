@@ -5,10 +5,11 @@
     */
     // 
 // Scripts
-// 
+//
 
 window.addEventListener('DOMContentLoaded', event => {
-
+    var mylist = JSON.parse(document.getElementById('data').textContent);
+    console.log(mylist)
     // Toggle the side navigation
     const sidebarToggle = document.body.querySelector('#sidebarToggle');
     if (sidebarToggle) {
