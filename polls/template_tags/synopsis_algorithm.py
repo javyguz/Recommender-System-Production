@@ -17,8 +17,9 @@ def recommend(s, data, title):
 
     else:
         movie_indices = s.loc[idx[-1]]
+    
 
-        # Top 5 book recommendation
+    # Top 5 book recommendation
     rec = pd.DataFrame(data[['title', 'image_url']].iloc[movie_indices])
 
     return rec
